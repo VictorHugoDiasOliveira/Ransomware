@@ -51,5 +51,6 @@ func timer() func() {
 	start := time.Now()
 	return func() {
 		fmt.Printf("It took: %v", time.Since(start))
+		time.Sleep(5000)
 	}
 }
