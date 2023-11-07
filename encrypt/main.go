@@ -48,7 +48,7 @@ func main() {
 		return nil
 	}))
 
-	fmt.Printf("Number of encrypted files: %v", count)
+	fmt.Printf("Number of encrypted files: %v\n", count)
 }
 
 func timer() func() {
