@@ -28,6 +28,7 @@ func main() {
 	// 	log.Fatalf("Nonce error: %v", err.Error())
 	// }
 
+	count := 0
 	// Walk through directory and subdirectory
 	filepath.Walk("./test/", filepath.WalkFunc(func(path string, file os.FileInfo, err error) error {
 
@@ -42,15 +43,17 @@ func main() {
 
 			// Write encrypted content
 			os.WriteFile(path, cipherText, 0777)
+			count++
 		}
 		return nil
 	}))
+
+	fmt.Printf("Number of encrypted files: %v", count)
 }
 
 func timer() func() {
 	start := time.Now()
 	return func() {
 		fmt.Printf("It took: %v", time.Since(start))
-		time.Sleep(5000)
 	}
 }
