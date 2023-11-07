@@ -3,15 +3,11 @@ package main
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"fmt"
 	"os"
 	"path/filepath"
-	"time"
 )
 
 func main() {
-
-	defer timer()()
 
 	// Reading key
 	key, _ := os.ReadFile("./key.txt")
@@ -41,11 +37,4 @@ func main() {
 		}
 		return nil
 	}))
-}
-
-func timer() func() {
-	start := time.Now()
-	return func() {
-		fmt.Printf("It took: %v", time.Since(start))
-	}
 }
